@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Edit Purchase</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add/Edit Purchase</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="product">Product:</label>
+                <select id="product" name="product" required>
+                    <c:forEach var="product" items="${products}">
+                        <option value="${product.id}" ${purchase.product.id == product.id ? 'selected' : ''}>${product.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="supplier">Supplier:</label>
+                <select id="supplier" name="supplier" required>
+                    <c:forEach var="supplier" items="${suppliers}">
+                        <option value="${supplier.id}" ${purchase.supplier.id == supplier.id ? 'selected' : ''}>${supplier.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="${purchase.quantity}" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" value="${purchase.price}" required>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>
